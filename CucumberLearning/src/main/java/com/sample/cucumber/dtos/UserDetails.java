@@ -16,4 +16,10 @@ public class UserDetails {
     private String website;
     @XStreamAlias("Experience")
     private String experience;
+    @XStreamAlias("Expertise")
+    private String expertise;
+    @XStreamAlias("Education")
+    private String education;
+    @XStreamAlias("Comments")
+    private String comments;
 }
