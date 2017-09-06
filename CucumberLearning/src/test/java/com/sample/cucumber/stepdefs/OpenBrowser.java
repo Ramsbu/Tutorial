@@ -10,7 +10,7 @@ public class OpenBrowser {
     static WebDriver driver;
 
     public WebDriver loginToApplication() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\RamsPandu\\Documents\\Selenium\\Selenium Software\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Deepika Reddy G\\Documents\\Selenium\\software\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://www.globalsqa.com/samplepagetest/");

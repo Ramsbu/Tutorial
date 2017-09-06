@@ -8,6 +8,14 @@
     <artifactId>CucumberLearning</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <feature.attributes.path>src/test/resources/features</feature.attributes.path>
+        <fork.count>1</fork.count>
+
+    </properties>
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
@@ -45,5 +53,77 @@
         </dependency>
 
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>2.2.0</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <glue>com.sample.cucumber.stepdefs</glue>
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
+                            </outputDirectory>
+                            <featuresDirectory>${feature.attributes.path}</featuresDirectory>
+                            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+                            <strict>false</strict>
+                            <monochrome>true</monochrome>
+                            <cucumberOptions>
+                                --plugin
+                                pretty,json
+                            </cucumberOptions>
+                            <tags>${"~@Pending", "~@Bug","~@Ignore"}</tags>
+                            <filterFeaturesByTags>true</filterFeaturesByTags>
+                            <namingPattern>Parallel{c}IT</namingPattern>
+                            <parallelScheme>SCENARIO</parallelScheme>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <includes>
+                        <include>**/*IT.class</include>
+                    </includes>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <argLine>
+                        -Xmx150m
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit4</artifactId>
+                        <version>2.19.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+
+        </plugins>
+    </build>
 
 </project>
