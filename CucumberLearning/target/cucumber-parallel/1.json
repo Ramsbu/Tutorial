@@ -1,0 +1,100 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8876271175,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HomePageSteps.loginToApplication()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "login to application",
+        "description": "",
+        "id": "test;login-to-application",
+        "after": [
+          {
+            "result": {
+              "duration": 31339,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HomePageSteps.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 19163963500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I register with below info in the application",
+            "match": {
+              "location": "HomePageSteps.registerUser(UserDetails\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "FirstName",
+                  "Email",
+                  "Website",
+                  "Experience",
+                  "Expertise",
+                  "Education",
+                  "Comments"
+                ],
+                "line": 6
+              },
+              {
+                "cells": [
+                  "Abhi",
+                  "abigmail@gmail.com",
+                  "www.globalsqa.com",
+                  "5-7",
+                  "Automation Testing;Functional Testing",
+                  "Graduate",
+                  "HI How Are you"
+                ],
+                "line": 7
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2526990448,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I Select \"ARG\" value from the drop down",
+            "match": {
+              "arguments": [
+                {
+                  "val": "ARG",
+                  "offset": 10
+                }
+              ],
+              "location": "DropDownPageSteps.selectCountry(String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "test",
+    "description": "",
+    "id": "test",
+    "keyword": "Feature",
+    "uri": "C:/Users/Deepika Reddy G/Documents/Selenium/projects/Tutorial/CucumberLearning/src/test/resources/features/sample.feature"
+  }
+]
